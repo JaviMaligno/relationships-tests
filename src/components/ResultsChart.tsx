@@ -21,11 +21,17 @@ const ResultsChart: React.FC<ResultsChartProps> = ({ data, maxValue, highestKey 
             top: 20,
             right: 30,
             left: 20,
-            bottom: 20,
+            bottom: 60,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+          <XAxis 
+            dataKey="name" 
+            angle={-45}
+            textAnchor="end"
+            height={60}
+            interval={0}
+          />
           <YAxis domain={[0, maxValue]} />
           <Tooltip 
             formatter={(value, name, props) => [value, props.payload.description]}
