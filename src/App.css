@@ -1,0 +1,352 @@
+/* General App Styles */
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.App-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.App-header h1 {
+  color: #2c3e50;
+  font-size: 2rem;
+}
+
+.App-main {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.App-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+/* Tab Navigation */
+.test-tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #95a5a6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  color: #3498db;
+}
+
+.tab.active {
+  color: #3498db;
+  border-bottom-color: #3498db;
+}
+
+/* Test Container */
+.test-container {
+  padding: 20px;
+}
+
+/* Question Card */
+.question-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.question-card h3 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+.question-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Options */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option:hover {
+  background-color: #f0f7ff;
+  border-color: #bbd8ff;
+}
+
+.option.selected {
+  background-color: #e3f2fd;
+  border-color: #90caf9;
+}
+
+.option-key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  margin-right: 15px;
+  font-weight: 600;
+  color: #555;
+}
+
+.option.selected .option-key {
+  background-color: #90caf9;
+  color: white;
+}
+
+.option-text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* Navigation */
+.test-navigation {
+  margin-top: 30px;
+}
+
+.navigation-progress {
+  margin-bottom: 20px;
+}
+
+.progress-text {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: #ecf0f1;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #3498db;
+  transition: width 0.3s ease;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.back-button,
+.next-button,
+.submit-button,
+.restart-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-button {
+  background-color: #ecf0f1;
+  color: #7f8c8d;
+}
+
+.back-button:hover:not(:disabled) {
+  background-color: #dfe6e9;
+}
+
+.next-button,
+.submit-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.next-button:hover:not(:disabled),
+.submit-button:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.restart-button {
+  background-color: #e74c3c;
+  color: white;
+  margin-top: 20px;
+}
+
+.restart-button:hover {
+  background-color: #c0392b;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Results */
+.test-results {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.test-results h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+.results-section {
+  margin-bottom: 30px;
+}
+
+.results-section h3 {
+  color: #3498db;
+  border-bottom: 1px solid #ecf0f1;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.results-summary {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+
+.results-summary h4 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.primary-result {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #3498db;
+  margin: 15px 0;
+}
+
+/* Test Section */
+.test-section {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+  
+  .tab {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .question-text {
+    font-size: 1rem;
+  }
+  
+  .option {
+    padding: 10px;
+  }
+  
+  .option-key {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+}
+
+/* Question Card */
+.selection-hint {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Options */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option:hover {
+  background-color: #f0f7ff;
+  border-color: #bbd8ff;
+}
+
+.option.selected {
+  background-color: #e3f2fd;
+  border-color: #90caf9;
+}
+
+.option-key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  margin-right: 15px;
+  font-weight: 600;
+  color: #555;
+}
+
+.option.selected .option-key {
+  background-color: #90caf9;
+  color: white;
+}
+
+.option-text {
+  flex: 1;
+  line-height: 1.4;
+} 
