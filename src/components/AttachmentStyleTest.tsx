@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useTest } from '../contexts/TestContext';
 import { attachmentQuestions, attachmentStyleCategories, attachmentStyleDescriptions } from '../data/attachmentStyleData';
 import { AttachmentStyleOption } from '../contexts/TestContext';
 import QuestionCard from './QuestionCard';
 import TestNavigation from './TestNavigation';
 import ResultsChart from './ResultsChart';
+import { downloadElementAsImage } from '../utils/downloadUtils';
 
 const AttachmentStyleTest: React.FC = () => {
   const { 
@@ -16,6 +17,7 @@ const AttachmentStyleTest: React.FC = () => {
   
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResults, setShowResults] = useState(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
   
   const currentQuestion = attachmentQuestions[currentQuestionIndex];
   const questionNumber = currentQuestionIndex + 1;
@@ -86,31 +88,38 @@ const AttachmentStyleTest: React.FC = () => {
     
     // Maximum value for chart scaling
     const maxValue = Math.max(...Object.values(results));
-    
+
     return (
-      <div className="test-results">
-        <h2>Your Attachment Style Results</h2>
-        
-        <div className="results-section">
-          <ResultsChart 
-            data={resultsData} 
-            maxValue={maxValue} 
-            highestKey={attachmentStyleCategories[highestEntry.key as keyof typeof attachmentStyleCategories]} 
-          />
+      <>
+        <div className="test-results" ref={resultsRef}>
+          <h2>Your Attachment Style Results</h2>
           
-          <div className="results-summary">
-            <h4>Your primary attachment style is:</h4>
-            <div className="primary-result">
-              {attachmentStyleCategories[highestEntry.key as keyof typeof attachmentStyleCategories]}
+          <div className="results-section">
+            <ResultsChart 
+              data={resultsData} 
+              maxValue={maxValue} 
+              highestKey={attachmentStyleCategories[highestEntry.key as keyof typeof attachmentStyleCategories]} 
+            />
+            
+            <div className="results-summary">
+              <h4>Your primary attachment style is:</h4>
+              <div className="primary-result">
+                {attachmentStyleCategories[highestEntry.key as keyof typeof attachmentStyleCategories]}
+              </div>
+              <p>{attachmentStyleDescriptions[highestEntry.key as keyof typeof attachmentStyleDescriptions]}</p>
             </div>
-            <p>{attachmentStyleDescriptions[highestEntry.key as keyof typeof attachmentStyleDescriptions]}</p>
           </div>
         </div>
-        
-        <button className="restart-button" onClick={handleRestartTest}>
-          Restart Test
-        </button>
-      </div>
+
+        <div style={{ marginTop: '20px', textAlign: 'center' }}> 
+          <button className="download-button" onClick={() => downloadElementAsImage(resultsRef, 'attachment-style-results.png')}>
+              Download Results
+          </button>
+          <button className="restart-button" onClick={handleRestartTest} style={{ marginTop: '10px' }}>
+            Restart Test
+          </button>
+        </div>
+      </>
     );
   }
   

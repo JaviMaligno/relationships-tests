@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useTest } from '../contexts/TestContext';
 import { loveLanguagesQuestions, loveLanguagesCategories, loveLanguageDescriptions } from '../data/loveLanguagesData';
 import { LoveLanguageOption } from '../contexts/TestContext';
 import QuestionCard from './QuestionCard';
 import TestNavigation from './TestNavigation';
 import ResultsChart from './ResultsChart';
+import { downloadElementAsImage } from '../utils/downloadUtils';
 
 const LoveLanguageTest: React.FC = () => {
   const { 
@@ -16,6 +17,7 @@ const LoveLanguageTest: React.FC = () => {
   
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResults, setShowResults] = useState(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
   
   const currentQuestion = loveLanguagesQuestions[currentQuestionIndex];
   const questionNumber = currentQuestionIndex + 1;
@@ -71,12 +73,26 @@ const LoveLanguageTest: React.FC = () => {
   if (showResults) {
     const results = calculateLoveLanguageResults();
     
+    // Define the desired order for chart bars
+    const desiredOrder: LoveLanguageOption[] = ['B', 'D', 'A', 'E', 'C'];
+    const desiredNameOrder = desiredOrder.map(key => loveLanguagesCategories[key]);
+
+    // Helper function to sort data based on the desired order
+    const sortData = (data: Array<{ name: string; value: number; description: string }>) => {
+      return data.sort((a, b) => {
+        const indexA = desiredNameOrder.indexOf(a.name);
+        const indexB = desiredNameOrder.indexOf(b.name);
+        return indexA - indexB;
+      });
+    };
+    
     // Process results for expressing love
-    const expressData = Object.entries(results.express).map(([key, value]) => ({
+    const expressDataUnsorted = Object.entries(results.express).map(([key, value]) => ({
       name: loveLanguagesCategories[key as keyof typeof loveLanguagesCategories],
       value,
       description: loveLanguageDescriptions[key as keyof typeof loveLanguageDescriptions]
     }));
+    const expressData = sortData(expressDataUnsorted);
     
     // Find the highest value for expressing love
     const highestExpressEntry = Object.entries(results.express).reduce(
@@ -85,11 +101,12 @@ const LoveLanguageTest: React.FC = () => {
     );
     
     // Process results for receiving love
-    const receiveData = Object.entries(results.receive).map(([key, value]) => ({
+    const receiveDataUnsorted = Object.entries(results.receive).map(([key, value]) => ({
       name: loveLanguagesCategories[key as keyof typeof loveLanguagesCategories],
       value,
       description: loveLanguageDescriptions[key as keyof typeof loveLanguageDescriptions]
     }));
+    const receiveData = sortData(receiveDataUnsorted);
     
     // Find the highest value for receiving love
     const highestReceiveEntry = Object.entries(results.receive).reduce(
@@ -104,7 +121,7 @@ const LoveLanguageTest: React.FC = () => {
     );
     
     return (
-      <div className="test-results">
+      <div className="test-results" ref={resultsRef}>
         <h2>Your Love Language Results</h2>
         
         <div className="results-section">
@@ -141,7 +158,11 @@ const LoveLanguageTest: React.FC = () => {
           </div>
         </div>
         
-        <button className="restart-button" onClick={handleRestartTest}>
+        <button className="download-button" onClick={() => downloadElementAsImage(resultsRef, 'love-language-results.png')}>
+          Download Results
+        </button>
+
+        <button className="restart-button" onClick={handleRestartTest} style={{ marginTop: '10px' }}>
           Restart Test
         </button>
       </div>
