@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TestProvider } from './contexts/TestContext';
 import LoveLanguageTest from './components/LoveLanguageTest';
 import AttachmentStyleTest from './components/AttachmentStyleTest';
+import Resources from './components/Resources';
 import './App.css';
 
 function App() {
@@ -27,12 +28,19 @@ function App() {
           >
             Attachment Style Test
           </button>
+          <button
+            className={`tab ${activeTab === 'resources' ? 'active' : ''}`}
+            onClick={() => setActiveTab('resources')}
+          >
+            Resources
+          </button>
         </div>
 
         <div className="test-container">
           <TestProvider>
             {activeTab === 'love' && <LoveLanguageTest />}
             {activeTab === 'attachment' && <AttachmentStyleTest />}
+            {activeTab === 'resources' && <Resources />}
           </TestProvider>
         </div>
       </main>

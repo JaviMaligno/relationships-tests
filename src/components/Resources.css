@@ -1,0 +1,44 @@
+.resources-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.resources-content h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.resources-content h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: #555;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.resources-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.resources-content li {
+  margin-bottom: 15px;
+}
+
+.resources-content a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.resources-content a:hover {
+  text-decoration: underline;
+}
+
+.resources-content p {
+  margin-top: 5px;
+  margin-left: 10px; /* Indent the description slightly */
+  font-size: 0.9em;
+  color: #666;
+} 
