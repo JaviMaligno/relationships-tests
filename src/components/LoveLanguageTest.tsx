@@ -171,6 +171,12 @@ const LoveLanguageTest: React.FC = () => {
   
   return (
     <div className="love-language-test">
+      <div className="test-introduction">
+        <h3>Understanding Love Languages</h3>
+        <p>
+          Developed by Dr. Gary Chapman, the concept of the Five Love Languages helps us understand how people prefer to give and receive love. These languages—Words of Affirmation, Quality Time, Receiving Gifts, Acts of Service, and Physical Touch—represent different ways individuals express and experience affection. Identifying your primary love language, as well as your partner's, can significantly improve communication and strengthen your relationship by ensuring you both feel genuinely understood and cherished. This test will help you discover your dominant languages for both expressing and receiving love.
+        </p>
+      </div>
       <h2>Love Languages Test</h2>
       <h3 className="test-section">
         {currentQuestion.section === 'express' 

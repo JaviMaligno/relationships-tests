@@ -125,6 +125,12 @@ const AttachmentStyleTest: React.FC = () => {
   
   return (
     <div className="attachment-style-test">
+      <div className="test-introduction">
+        <h3>Understanding Attachment Styles</h3>
+        <p>
+          Attachment theory, originally developed by John Bowlby and later expanded by Mary Ainsworth, describes the different ways people form emotional bonds and connect with others, particularly in close relationships. Our early experiences with caregivers shape our attachment patterns, influencing how we perceive intimacy, handle conflict, and seek or avoid closeness as adults. Common styles include Secure, Anxious (Preoccupied), Avoidant (Dismissive), and Disorganized (Fearful). Understanding your own attachment style can provide valuable insights into your relationship dynamics and help foster healthier connections. This test aims to identify your predominant attachment style based on your responses.
+        </p>
+      </div>
       <h2>Attachment Style Test</h2>
       
       <QuestionCard<AttachmentStyleOption>
