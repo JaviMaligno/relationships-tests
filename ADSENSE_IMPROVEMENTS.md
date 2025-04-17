@@ -6,10 +6,10 @@ This document outlines suggested improvements to the Relationship Self-Assessmen
 
 **Goal:** Address potential "Insufficient Content" and "Content Quality" issues by adding substantial unique text. [Reference: Insufficient Content](https://support.google.com/adsense/answer/81904?hl=es&ref_topic=1391540&sjid=15752995634416544926-EU#insufficient_content), [Reference: Quality Issues](https://support.google.com/adsense/answer/81904?hl=es&ref_topic=1391540&sjid=15752995634416544926-EU#content_quality_issues)
 
-* [ ] **Expand Resources Tab:**
-  * Instead of just links, write original summaries/articles for each resource topic.
-  * Add introductory text explaining the importance of these resources.
-  * Consider adding blog-style posts related to relationship topics.
+* [X] **Expand Resources Tab:**
+  * [X] Instead of just links, write original summaries/articles for each resource topic. (Done)
+  * [X] Add introductory text explaining the importance of these resources. (Done)
+  * [ ] Consider adding blog-style posts related to relationship topics.
 * [X] **Add Test Introductions:**
   * [X] Write a detailed introduction paragraph before the Love Languages test explaining the theory, its origin, and purpose.
   * [X] Write a detailed introduction paragraph before the Attachment Styles test explaining the theory, its origin, and purpose.
