@@ -1,54 +1,68 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, NavLink, Link } from 'react-router-dom';
 import { TestProvider } from './contexts/TestContext';
 import LoveLanguageTest from './components/LoveLanguageTest';
 import AttachmentStyleTest from './components/AttachmentStyleTest';
 import Resources from './components/Resources';
+import AboutUs from './pages/AboutUs';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import ContactUs from './pages/ContactUs';
 import './App.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('love');
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Relationship Self-Assessment Tests</h1>
-      </header>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <h1>Relationship Self-Assessment Tests</h1>
+        </header>
 
-      <main className="App-main">
-        <div className="test-tabs">
-          <button 
-            className={`tab ${activeTab === 'love' ? 'active' : ''}`}
-            onClick={() => setActiveTab('love')}
-          >
-            Love Languages Test
-          </button>
-          <button 
-            className={`tab ${activeTab === 'attachment' ? 'active' : ''}`}
-            onClick={() => setActiveTab('attachment')}
-          >
-            Attachment Style Test
-          </button>
-          <button
-            className={`tab ${activeTab === 'resources' ? 'active' : ''}`}
-            onClick={() => setActiveTab('resources')}
-          >
-            Resources
-          </button>
-        </div>
+        <TestProvider>
+          <main className="App-main">
+            <nav className="test-tabs">
+              <NavLink 
+                to="/"
+                className={({ isActive }) => `tab ${isActive ? 'active' : ''}`}
+              >
+                Love Languages Test
+              </NavLink>
+              <NavLink 
+                to="/attachment"
+                className={({ isActive }) => `tab ${isActive ? 'active' : ''}`}
+              >
+                Attachment Style Test
+              </NavLink>
+              <NavLink
+                to="/resources"
+                className={({ isActive }) => `tab ${isActive ? 'active' : ''}`}
+              >
+                Resources
+              </NavLink>
+            </nav>
 
-        <div className="test-container">
-          <TestProvider>
-            {activeTab === 'love' && <LoveLanguageTest />}
-            {activeTab === 'attachment' && <AttachmentStyleTest />}
-            {activeTab === 'resources' && <Resources />}
-          </TestProvider>
-        </div>
-      </main>
+            <div className="test-container">
+              <Routes>
+                <Route path="/" element={<LoveLanguageTest />} />
+                <Route path="/attachment" element={<AttachmentStyleTest />} />
+                <Route path="/resources" element={<Resources />} />
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/contact" element={<ContactUs />} />
+              </Routes>
+            </div>
+          </main>
+        </TestProvider>
 
-      <footer className="App-footer">
-        <p>© 2025 Self-Assessment Tests</p>
-      </footer>
-    </div>
+        <footer className="App-footer">
+          <p>© 2025 Self-Assessment Tests</p>
+          <div className="footer-links">
+            <Link to="/about">About Us</Link>
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/contact">Contact Us</Link>
+          </div>
+        </footer>
+      </div>
+    </Router>
   );
 }
 

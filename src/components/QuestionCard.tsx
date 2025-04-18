@@ -1,6 +1,3 @@
-import React from 'react';
-import { LoveLanguageOption, AttachmentStyleOption } from '../contexts/TestContext';
-
 interface Option<T> {
   key: T;
   text: string;

@@ -29,10 +29,10 @@ This document outlines suggested improvements to the Relationship Self-Assessmen
 
 **Goal:** Increase site credibility and provide necessary information often expected by AdSense and users.
 
-* [ ] **Create "About Us" Page:** Explain the site's mission, purpose, and potentially the creators.
-* [ ] **Create "Privacy Policy" Page:** Detail how user data (if any) is handled. Even if no data is explicitly collected, a basic policy is good practice.
-* [ ] **Create "Contact Us" Page:** Provide a way for users to get in touch.
-* [ ] Add links to these new pages in the site footer.
+* [X] **Create "About Us" Page:** Explain the site's mission, purpose, and potentially the creators. (Done)
+* [X] **Create "Privacy Policy" Page:** Detail how user data (if any) is handled. Even if no data is explicitly collected, a basic policy is good practice. (Done)
+* [X] **Create "Contact Us" Page:** Provide a way for users to get in touch. (Done)
+* [X] Add links to these new pages in the site footer. (Done)
 
 ## 4. Refine User Experience & Navigation
 
