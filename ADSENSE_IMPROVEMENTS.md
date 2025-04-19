@@ -41,7 +41,7 @@ This document outlines suggested improvements to the Relationship Self-Assessmen
 * [X] **Check All Links:** Ensure all internal and external links (especially in Resources) are working correctly.
 * [X] **Test Functionality:** Thoroughly test both quizzes on different devices/browsers to ensure they work smoothly.
 * [X] **Review Presentation:** Ensure results are clearly presented and the site looks polished and complete.
-* [ ] **Add Footer:** Ensure a consistent footer is present on all views, containing copyright information and links to standard pages (About, Privacy, Contact).
+* [X] **Add Footer:** Ensure a consistent footer is present on all views, containing copyright information and links to standard pages (About, Privacy, Contact).
 
 ## 5. Review Traffic Sources
 

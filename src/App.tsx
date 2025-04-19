@@ -57,7 +57,9 @@ function App() {
           <p>© 2025 Self-Assessment Tests</p>
           <div className="footer-links">
             <Link to="/about">About Us</Link>
+            {' | '}
             <Link to="/privacy">Privacy Policy</Link>
+            {' | '}
             <Link to="/contact">Contact Us</Link>
           </div>
         </footer>
