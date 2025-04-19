@@ -220,8 +220,28 @@ export const attachmentQuestions: AttachmentQuestion[] = [
 ];
 
 export const attachmentStyleDescriptions = {
-  A: 'You have a Secure attachment style. You feel comfortable with intimacy and trust, and enjoy balanced closeness in your relationships.',
-  B: 'You have an Anxious (Preoccupied) attachment style. You crave closeness but often worry about being abandoned or not being enough.',
-  C: 'You have an Avoidant (Dismissive) attachment style. You value independence and can feel uneasy with too much closeness or dependence.',
-  D: 'You have a Disorganized (Fearful) attachment style. You experience conflicting feelings, sometimes wanting intimacy and at other times fearing it.'
+  A: {
+    title: 'Secure Attachment',
+    description: 'Individuals with a secure attachment style generally feel comfortable with intimacy and interdependence. They trust their partners, feel worthy of love, and can effectively communicate their needs and feelings. They navigate conflict constructively and maintain a healthy balance between closeness and independence.',
+    implications: 'You likely form stable, trusting, and satisfying relationships. You are comfortable expressing vulnerability and responding supportively to your partner\'s needs. You handle relationship stress well and don\'t fear abandonment or suffocation by intimacy.',
+    tips: 'Continue nurturing open communication and mutual support. Be mindful that partners with different attachment styles may need different forms of reassurance or space; practice empathy and understanding. Explore deeper emotional expression and connection.'
+  },
+  B: {
+    title: 'Anxious (Preoccupied) Attachment',
+    description: 'Those with an anxious attachment style crave high levels of intimacy, approval, and responsiveness from partners, often fearing abandonment. They can be overly dependent, doubt their self-worth, and may become demanding or clingy during stress or perceived threats to the relationship.',
+    implications: 'You might experience relationship anxiety, jealousy, or worry about your partner\'s commitment. You may seek constant reassurance and struggle with self-soothing during conflicts or separations. Your emotional highs and lows can be intense.',
+    tips: 'Develop self-soothing techniques and build self-esteem outside the relationship. Practice communicating needs calmly without demandingness. Learn to tolerate uncertainty and trust your partner more gradually. Recognize triggers for anxiety and develop coping strategies. Cognitive behavioral therapy (CBT) can be helpful.'
+  },
+  C: {
+    title: 'Avoidant (Dismissive) Attachment',
+    description: 'Individuals with a dismissive-avoidant style value independence and self-sufficiency highly. They tend to suppress or deny their feelings and needs, often feeling uncomfortable with deep emotional closeness. They may appear emotionally distant, withdraw during conflict, and prioritize personal freedom over relationship demands.',
+    implications: 'You might struggle with emotional vulnerability and find it hard to depend on others or let others depend on you. You may keep partners at arm\'s length, avoid conflict, or shut down emotionally. You might prioritize work or hobbies over relationship time.',
+    tips: 'Practice identifying and expressing your emotions gradually. Learn to recognize and value the benefits of interdependence. Challenge beliefs about self-sufficiency being the only way to be strong. Work on tolerating emotional discomfort and engaging more openly during conflicts. Therapy can help explore underlying fears of intimacy.'
+  },
+  D: {
+    title: 'Disorganized (Fearful-Avoidant) Attachment',
+    description: 'This style is characterized by conflicting desires for and fears of intimacy. Individuals may simultaneously crave closeness and feel uncomfortable or threatened by it. Their behavior can seem inconsistent or confusing, oscillating between approach and avoidance. This often stems from frightening or inconsistent early caregiver experiences.',
+    implications: 'Relationships can feel chaotic and unstable. You might struggle with trust, experience intense mood swings, and find it hard to regulate emotions during stress or conflict. You may sabotage relationships due to underlying fears. Past trauma may play a significant role.',
+    tips: 'Seek therapy, particularly trauma-informed therapy, to understand and process past experiences. Work on developing emotional regulation skills and building a coherent sense of self. Practice recognizing conflicting feelings without being overwhelmed. Learn to build trust gradually in safe relationships. Self-compassion is crucial.'
+  }
 }; 

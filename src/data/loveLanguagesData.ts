@@ -265,9 +265,64 @@ export const loveLanguagesQuestions: LoveQuestion[] = [
 ];
 
 export const loveLanguageDescriptions = {
-  A: 'You value and give love through kind, affirming words and compliments.',
-  B: 'You cherish and express love by dedicating focused, undivided attention.',
-  C: 'You believe in the power of thoughtful gifts as tangible symbols of love.',
-  D: 'You show care by doing helpful, practical acts for your partner.',
-  E: 'You express and feel love most through warm, affectionate physical contact.'
+  A: {
+    title: 'Words of Affirmation',
+    description: 'This language centers on the power of spoken or written words to convey love, appreciation, and encouragement. It emphasizes positive verbal reinforcement and affirmation.',
+    expressing: {
+      implications: 'If this is your primary way of expressing love, you naturally use compliments, praise, and words of encouragement to show you care. You likely find it easy to articulate your positive feelings for your partner.',
+      tips: 'Make a conscious effort to offer sincere compliments daily. Write notes or send texts expressing appreciation. Verbally acknowledge your partner\'s efforts and qualities. Be mindful that your words carry significant weight.'
+    },
+    receiving: {
+      implications: 'If this is your primary way of receiving love, hearing "I love you," compliments, and words of gratitude fills your emotional tank. Positive verbal feedback makes you feel seen and valued. Conversely, harsh words or criticism can be particularly hurtful.',
+      tips: 'Clearly communicate your need for verbal affirmation. Let your partner know specific phrases or types of compliments that resonate with you. Acknowledge and thank your partner when they offer kind words, reinforcing the behavior.'
+    }
+  },
+  B: {
+    title: 'Quality Time',
+    description: 'This language prioritizes dedicated, focused attention and shared experiences. It\'s about being truly present with your partner, free from distractions.',
+    expressing: {
+      implications: 'If this is how you primarily express love, you show you care by setting aside time specifically for your partner, planning dates, or engaging in shared activities. You prioritize being present and attentive.',
+      tips: 'Actively plan one-on-one time. Put away devices during conversations. Suggest activities you can enjoy together. Practice active listening – ask questions and show genuine interest in their day and feelings.'
+    },
+    receiving: {
+      implications: 'If this is how you primarily receive love, you feel most cherished when your partner gives you their undivided attention. Distractions, feeling rushed, or lack of one-on-one time can make you feel unimportant or neglected.',
+      tips: 'Communicate your need for focused time. Suggest specific activities you\'d enjoy doing together without distractions. Express appreciation when your partner makes an effort to be fully present with you.'
+    }
+  },
+  C: {
+    title: 'Receiving Gifts',
+    description: 'This language views gifts as tangible symbols of love, thought, and effort. The meaning and care behind the gift are more important than the monetary value.',
+    expressing: {
+      implications: 'If this is how you primarily express love, you enjoy finding or making thoughtful presents that show you were thinking of your partner. You likely put effort into selecting gifts that reflect their interests or needs.',
+      tips: 'Keep a list of gift ideas based on things your partner mentions. Focus on thoughtfulness – small, meaningful tokens can be very effective. Remember special occasions, but also give gifts "just because" to show you care.'
+    },
+    receiving: {
+      implications: 'If this is how you primarily receive love, a meaningful gift makes you feel seen, cared for, and prized. Forgetting special occasions or giving thoughtless gifts can feel like a lack of love or effort.',
+      tips: 'Express genuine appreciation for the thoughtfulness behind gifts. Share ideas or a wish list if it helps your partner. Remember that the gift is a symbol; focus on the sentiment behind it, not just the item itself.'
+    }
+  },
+  D: {
+    title: 'Acts of Service',
+    description: 'This language focuses on actions that ease the burden of responsibility for a partner. Doing helpful tasks demonstrates love and care.',
+    expressing: {
+      implications: 'If this is how you primarily express love, you show affection by doing practical things for your partner – helping with chores, running errands, or offering support with tasks. You believe actions speak louder than words.',
+      tips: 'Pay attention to tasks your partner dislikes or finds stressful and offer to help. Take initiative with household chores or responsibilities. Ask "How can I help you?" and follow through reliably.'
+    },
+    receiving: {
+      implications: 'If this is how you primarily receive love, you feel cherished when your partner takes initiative to help you out or lighten your load. Broken promises or perceived laziness in helping can feel like a significant rejection.',
+      tips: 'Clearly communicate which acts of service mean the most to you (don\'t assume your partner knows). Express sincere gratitude when your partner helps. Frame requests positively rather than making demands.'
+    }
+  },
+  E: {
+    title: 'Physical Touch',
+    description: 'This language uses physical contact to communicate love, security, and connection. Hugs, holding hands, and other forms of affectionate touch are paramount.',
+    expressing: {
+      implications: 'If this is how you primarily express love, you naturally initiate hugs, kisses, cuddling, or other physical gestures to show affection and connection. Physical closeness feels like a primary way to bond.',
+      tips: 'Be intentional about initiating appropriate physical touch – hugs, holding hands, a touch on the arm. Offer physical comfort during stressful times. Be mindful of your partner\'s comfort level and boundaries regarding touch.'
+    },
+    receiving: {
+      implications: 'If this is how you primarily receive love, physical affection like hugs, holding hands, cuddling, or even just sitting close makes you feel secure and loved. A lack of physical contact can make you feel isolated or disconnected.',
+      tips: 'Communicate your need for physical affection clearly and respectfully. Initiate touch yourself. Let your partner know how much their touch means to you. Discuss boundaries and types of touch you both enjoy.'
+    }
+  }
 }; 

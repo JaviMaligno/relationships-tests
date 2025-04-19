@@ -77,7 +77,7 @@ const AttachmentStyleTest: React.FC = () => {
     const resultsData = Object.entries(results).map(([key, value]) => ({
       name: attachmentStyleCategories[key as keyof typeof attachmentStyleCategories],
       value,
-      description: attachmentStyleDescriptions[key as keyof typeof attachmentStyleDescriptions]
+      description: attachmentStyleDescriptions[key as keyof typeof attachmentStyleDescriptions].title
     }));
     
     // Find the highest value
@@ -104,9 +104,11 @@ const AttachmentStyleTest: React.FC = () => {
             <div className="results-summary">
               <h4>Your primary attachment style is:</h4>
               <div className="primary-result">
-                {attachmentStyleCategories[highestEntry.key as keyof typeof attachmentStyleCategories]}
+                {attachmentStyleDescriptions[highestEntry.key as keyof typeof attachmentStyleDescriptions].title}
               </div>
-              <p>{attachmentStyleDescriptions[highestEntry.key as keyof typeof attachmentStyleDescriptions]}</p>
+              <p><strong>Description:</strong> {attachmentStyleDescriptions[highestEntry.key as keyof typeof attachmentStyleDescriptions].description}</p>
+              <p><strong>Implications:</strong> {attachmentStyleDescriptions[highestEntry.key as keyof typeof attachmentStyleDescriptions].implications}</p>
+              <p><strong>Tips for Growth:</strong> {attachmentStyleDescriptions[highestEntry.key as keyof typeof attachmentStyleDescriptions].tips}</p>
             </div>
           </div>
         </div>

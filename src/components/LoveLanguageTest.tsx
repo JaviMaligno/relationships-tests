@@ -90,7 +90,7 @@ const LoveLanguageTest: React.FC = () => {
     const expressDataUnsorted = Object.entries(results.express).map(([key, value]) => ({
       name: loveLanguagesCategories[key as keyof typeof loveLanguagesCategories],
       value,
-      description: loveLanguageDescriptions[key as keyof typeof loveLanguageDescriptions]
+      description: loveLanguageDescriptions[key as keyof typeof loveLanguageDescriptions].title
     }));
     const expressData = sortData(expressDataUnsorted);
     
@@ -104,7 +104,7 @@ const LoveLanguageTest: React.FC = () => {
     const receiveDataUnsorted = Object.entries(results.receive).map(([key, value]) => ({
       name: loveLanguagesCategories[key as keyof typeof loveLanguagesCategories],
       value,
-      description: loveLanguageDescriptions[key as keyof typeof loveLanguageDescriptions]
+      description: loveLanguageDescriptions[key as keyof typeof loveLanguageDescriptions].title
     }));
     const receiveData = sortData(receiveDataUnsorted);
     
@@ -135,9 +135,14 @@ const LoveLanguageTest: React.FC = () => {
           <div className="results-summary">
             <h4>Your primary way of expressing love is:</h4>
             <div className="primary-result">
-              {loveLanguagesCategories[highestExpressEntry.key as keyof typeof loveLanguagesCategories]}
+              {loveLanguageDescriptions[highestExpressEntry.key as keyof typeof loveLanguageDescriptions].title}
             </div>
-            <p>{loveLanguageDescriptions[highestExpressEntry.key as keyof typeof loveLanguageDescriptions]}</p>
+            <p>{loveLanguageDescriptions[highestExpressEntry.key as keyof typeof loveLanguageDescriptions].description}</p>
+            <p><strong>Implications:</strong> {loveLanguageDescriptions[highestExpressEntry.key as keyof typeof loveLanguageDescriptions].expressing.implications}</p>
+            <div className="tips-section">
+              <h5>Tips for Expressing This Language:</h5>
+              <p>{loveLanguageDescriptions[highestExpressEntry.key as keyof typeof loveLanguageDescriptions].expressing.tips}</p>
+            </div>
           </div>
         </div>
         
@@ -152,9 +157,14 @@ const LoveLanguageTest: React.FC = () => {
           <div className="results-summary">
             <h4>Your primary way of receiving love is:</h4>
             <div className="primary-result">
-              {loveLanguagesCategories[highestReceiveEntry.key as keyof typeof loveLanguagesCategories]}
+              {loveLanguageDescriptions[highestReceiveEntry.key as keyof typeof loveLanguageDescriptions].title}
             </div>
-            <p>{loveLanguageDescriptions[highestReceiveEntry.key as keyof typeof loveLanguageDescriptions]}</p>
+            <p>{loveLanguageDescriptions[highestReceiveEntry.key as keyof typeof loveLanguageDescriptions].description}</p>
+            <p><strong>Implications:</strong> {loveLanguageDescriptions[highestReceiveEntry.key as keyof typeof loveLanguageDescriptions].receiving.implications}</p>
+            <div className="tips-section">
+              <h5>Tips for Receiving This Language:</h5>
+              <p>{loveLanguageDescriptions[highestReceiveEntry.key as keyof typeof loveLanguageDescriptions].receiving.tips}</p>
+            </div>
           </div>
         </div>
         
