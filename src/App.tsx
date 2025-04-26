@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, NavLink, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import { TestProvider } from './contexts/TestContext';
 import LoveLanguageTest from './components/LoveLanguageTest';
 import AttachmentStyleTest from './components/AttachmentStyleTest';
@@ -7,6 +7,9 @@ import Resources from './components/Resources';
 import AboutUs from './pages/AboutUs';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import ContactUs from './pages/ContactUs';
+import TermsPage from './components/Pages/TermsPage';
+import DisclaimerPage from './components/Pages/DisclaimerPage';
+import Footer from './components/Layout/Footer';
 import './App.css';
 
 function App() {
@@ -27,7 +30,7 @@ function App() {
                 Love Languages Test
               </NavLink>
               <NavLink 
-                to="/attachment"
+                to="/attachment-styles"
                 className={({ isActive }) => `tab ${isActive ? 'active' : ''}`}
               >
                 Attachment Style Test
@@ -43,26 +46,20 @@ function App() {
             <div className="test-container">
               <Routes>
                 <Route path="/" element={<LoveLanguageTest />} />
-                <Route path="/attachment" element={<AttachmentStyleTest />} />
+                <Route path="/love-languages" element={<LoveLanguageTest />} />
+                <Route path="/attachment-styles" element={<AttachmentStyleTest />} />
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/contact" element={<ContactUs />} />
+                <Route path="/terms" element={<TermsPage />} />
+                <Route path="/disclaimer" element={<DisclaimerPage />} />
               </Routes>
             </div>
           </main>
         </TestProvider>
 
-        <footer className="App-footer">
-          <p>© 2025 Self-Assessment Tests</p>
-          <div className="footer-links">
-            <Link to="/about">About Us</Link>
-            {' | '}
-            <Link to="/privacy">Privacy Policy</Link>
-            {' | '}
-            <Link to="/contact">Contact Us</Link>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </Router>
   );
