@@ -1,5 +1,6 @@
 import React from 'react';
 import './Resources.css'; // We'll create this for styling
+import AdUnit from './AdUnit/AdUnit'; // Import the AdUnit component
 
 const Resources: React.FC = () => {
   return (
@@ -13,6 +14,8 @@ const Resources: React.FC = () => {
         stronger connections, and personal growth within your relationships.
       </p>
       
+      <AdUnit />
+
       <section>
         <h3>Love Languages</h3>
         <ul>

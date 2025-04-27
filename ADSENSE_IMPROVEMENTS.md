@@ -89,9 +89,9 @@ AdSense reviewers and crawlers may *not* interact with the quizzes, so most of y
 
 ## 11. AdSense Technical Checks
 
-*   [ ] **Single AdSense Script:** Verify the AdSense `<script>` is only injected once site-wide.
-*   [ ] **Ad Placeholder:** Add at least one responsive ad unit in visible content (e.g., inside articles) so reviewers see how ads will appear.
-*   [ ] **Ads.txt:** If hosting on a custom domain in the future, create an `ads.txt` file at the root listing your publisher ID.
+*   [X] **Single AdSense Script:** Verify the AdSense `<script>` is only injected once site-wide.
+*   [X] **Ad Placeholder:** Add at least one responsive ad unit in visible content (e.g., inside articles) so reviewers see how ads will appear.
+*   [X] **Ads.txt:** If hosting on a custom domain in the future, create an `ads.txt` file at the root listing your publisher ID.
 
 ## 12. Performance & Mobile Friendliness
 
