@@ -67,14 +67,14 @@ While AdSense technically focuses on policy compliance, many recent rejections c
 
 AdSense reviewers and crawlers may *not* interact with the quizzes, so most of your rich content is hidden. Provide crawlable pages that stand on their own.
 
-*   [ ] **Create Dedicated Pages (≈600-1000 words each):**
-    *   Love Languages Overview (static page, separate from the quiz intro)
-    *   Individual Love Language pages (one per language, deep-dive content; inter-link them)
-    *   Attachment Styles Overview page
-    *   Individual Attachment Style pages (one per style)
-    *   FAQ page (common questions about the tests & relationship theories)
-*   [ ] **Internal Linking:** Link these articles from the Resources tab and from each other.
-*   [ ] **Sitemap.xml:** Generate and serve a sitemap so AdSense reviewers can easily discover all pages.
+*   [X] **Create Dedicated Pages (≈600-1000 words each):** (Basic structure created)
+    *   [X] Love Languages Overview (static page, separate from the quiz intro)
+    *   [X] Individual Love Language pages (one per language, deep-dive content; inter-link them)
+    *   [X] Attachment Styles Overview page
+    *   [X] Individual Attachment Style pages (one per style)
+    *   [X] FAQ page (common questions about the tests & relationship theories)
+*   [X] **Internal Linking:** Link these articles from the Resources tab and from each other. (Initial links added)
+*   [X] **Sitemap.xml:** Generate and serve a sitemap so AdSense reviewers can easily discover all pages. (Generated and linked in robots.txt)
 
 ## 9. Improve On-Page SEO / Meta Tags
 

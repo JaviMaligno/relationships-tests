@@ -38,6 +38,10 @@ const Footer: React.FC = () => {
                     <MuiLink component={RouterLink} to="/disclaimer" color="inherit" sx={{ mx: 1 }}>
                         Disclaimer
                     </MuiLink>
+                    |
+                    <MuiLink component={RouterLink} to="/faq" color="inherit" sx={{ mx: 1 }}>
+                        FAQ
+                    </MuiLink>
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     {'Copyright © '}
