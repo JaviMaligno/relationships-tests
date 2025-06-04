@@ -7,6 +7,9 @@ import TestNavigation from './TestNavigation';
 import ResultsChart from './ResultsChart';
 import { downloadElementAsImage } from '../utils/downloadUtils';
 import { shuffleArray } from '../utils/arrayUtils';
+import { SEO, StructuredData, createQuizSchema, createWebSiteSchema } from './SEO';
+import AdUnit from './AdUnit/AdUnit';
+import html2canvas from 'html2canvas';
 
 const LoveLanguageTest: React.FC = () => {
   const { 
@@ -227,6 +230,30 @@ const LoveLanguageTest: React.FC = () => {
   
   return (
     <div className="love-language-test">
+      <SEO
+        title="Love Languages Test | Discover How You Give & Receive Love"
+        description="Take our free Love Languages test to discover your primary way of expressing and receiving love. Based on Dr. Gary Chapman's 5 Love Languages theory."
+        keywords="love languages test, five love languages, Dr Gary Chapman, words of affirmation, quality time, physical touch, acts of service, receiving gifts"
+        canonical="https://relationships-tests.vercel.app/"
+        ogType="website"
+      />
+      
+      <StructuredData
+        schema={createWebSiteSchema(
+          'Relationship Self-Assessment Tests',
+          'https://relationships-tests.vercel.app',
+          'Free interactive tests to understand and improve your relationships. Discover your Love Language and Attachment Style.'
+        )}
+      />
+      
+      <StructuredData
+        schema={createQuizSchema(
+          'Love Languages Test',
+          'Discover your primary love language for expressing and receiving love based on Dr. Gary Chapman\'s Five Love Languages theory.',
+          'Love Languages and Relationship Communication'
+        )}
+      />
+      
       <div className="test-introduction">
         <h3>Understanding Love Languages</h3>
         <p>

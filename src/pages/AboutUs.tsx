@@ -1,9 +1,18 @@
 import React from 'react';
 import '../App.css'; // Reuse existing styles if applicable
+import { SEO } from '../components/SEO';
 
 const AboutUs: React.FC = () => {
   return (
     <div className="page-container">
+      <SEO
+        title="About Us | Relationship Self-Assessment Tests"
+        description="Learn about our mission to provide accessible relationship assessment tools based on Love Languages and Attachment Theory to help improve relationship dynamics."
+        keywords="about relationship tests, love languages assessment, attachment style assessment, relationship psychology"
+        canonical="https://relationships-tests.vercel.app/about"
+        ogType="website"
+      />
+      
       <h2>About Us</h2>
       <p>
         Welcome to Relationship Self-Assessment Tests! Our mission is to provide 

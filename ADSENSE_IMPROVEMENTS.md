@@ -79,14 +79,14 @@ AdSense reviewers and crawlers may *not* interact with the quizzes, so most of y
 
 ## 9. Improve On-Page SEO / Meta Tags
 
-*   [ ] Use React Helmet (or @tanstack/react-helmet-async) to set a unique `<title>` and `<meta description>` per route.
-*   [ ] Add canonical URLs to prevent duplicate content signals.
+*   [X] Use React Helmet (or @tanstack/react-helmet-async) to set a unique `<title>` and `<meta description>` per route.
+*   [X] Add canonical URLs to prevent duplicate content signals.
 
 ## 10. Accessibility & UX Polish
 
 *   [ ] Ensure all interactive elements have `aria-label`s and accessible color contrast.
 *   [ ] Provide `alt` text for any images (e.g., logos, future blog images).
-*   [ ] Add a custom 404 page with helpful navigation links.
+*   [X] Add a custom 404 page with helpful navigation links.
 
 ## 11. AdSense Technical Checks
 

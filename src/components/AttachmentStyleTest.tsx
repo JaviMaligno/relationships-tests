@@ -7,6 +7,7 @@ import TestNavigation from './TestNavigation';
 import ResultsChart from './ResultsChart';
 import { downloadElementAsImage } from '../utils/downloadUtils';
 import { shuffleArray } from '../utils/arrayUtils';
+import { SEO, StructuredData, createQuizSchema } from './SEO';
 
 const AttachmentStyleTest: React.FC = () => {
   const { 
@@ -173,6 +174,22 @@ const AttachmentStyleTest: React.FC = () => {
   
   return (
     <div className="attachment-style-test">
+      <SEO
+        title="Attachment Style Test | Discover Your Relationship Patterns"
+        description="Take our free Attachment Style test to understand your relationship patterns and emotional bonds. Based on John Bowlby and Mary Ainsworth's attachment theory."
+        keywords="attachment style test, attachment theory, John Bowlby, Mary Ainsworth, secure attachment, anxious attachment, avoidant attachment, disorganized attachment"
+        canonical="https://relationships-tests.vercel.app/attachment-styles"
+        ogType="website"
+      />
+      
+      <StructuredData
+        schema={createQuizSchema(
+          'Attachment Style Test',
+          'Discover your attachment style and understand your relationship patterns based on attachment theory developed by John Bowlby and Mary Ainsworth.',
+          'Attachment Theory and Relationship Psychology'
+        )}
+      />
+      
       <div className="test-introduction">
         <h3>Understanding Attachment Styles</h3>
         <p>
