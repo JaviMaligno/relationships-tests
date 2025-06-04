@@ -42,6 +42,7 @@ This document outlines suggested improvements to the Relationship Self-Assessmen
 * [X] **Test Functionality:** Thoroughly test both quizzes on different devices/browsers to ensure they work smoothly.
 * [X] **Review Presentation:** Ensure results are clearly presented and the site looks polished and complete.
 * [X] **Add Footer:** Ensure a consistent footer is present on all views, containing copyright information and links to standard pages (About, Privacy, Contact).
+* [X] **Randomize Question Options:** Shuffle the order of options for each question in the tests to make them less predictable and improve user engagement. (Done)
 
 ## 5. Review Traffic Sources
 

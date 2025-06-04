@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import { useTest } from '../contexts/TestContext';
 import { attachmentQuestions, attachmentStyleCategories, attachmentStyleDescriptions } from '../data/attachmentStyleData';
 import { AttachmentStyleOption } from '../contexts/TestContext';
@@ -6,6 +6,7 @@ import QuestionCard from './QuestionCard';
 import TestNavigation from './TestNavigation';
 import ResultsChart from './ResultsChart';
 import { downloadElementAsImage } from '../utils/downloadUtils';
+import { shuffleArray } from '../utils/arrayUtils';
 
 const AttachmentStyleTest: React.FC = () => {
   const { 
@@ -63,11 +64,56 @@ const AttachmentStyleTest: React.FC = () => {
   const canGoBack = currentQuestionIndex > 0;
   const canGoForward = attachmentStyleAnswers[currentQuestion.id]?.length > 0;
   
-  // Prepare options for the current question
-  const options = Object.entries(currentQuestion.options).map(([key, text]) => ({
-    key: key as AttachmentStyleOption,
-    text
-  }));
+  // Prepare options for the current question with shuffled content but ordered letters
+  const { options, optionMapping } = useMemo(() => {
+    // Get the original options and shuffle their texts
+    const originalEntries = Object.entries(currentQuestion.options);
+    const shuffledTexts = shuffleArray(originalEntries.map(([_, text]) => text));
+    
+    // Create new options with letters A-D but shuffled text content
+    const letters: AttachmentStyleOption[] = ['A', 'B', 'C', 'D'];
+    const newOptions = letters.map((letter, index) => ({
+      key: letter,
+      text: shuffledTexts[index]
+    }));
+    
+    // Create mapping from display letter to original option key
+    const mapping: Record<AttachmentStyleOption, AttachmentStyleOption> = {} as Record<AttachmentStyleOption, AttachmentStyleOption>;
+    letters.forEach((letter, index) => {
+      const originalText = shuffledTexts[index];
+      const originalKey = originalEntries.find(([_, text]) => text === originalText)?.[0] as AttachmentStyleOption;
+      mapping[letter] = originalKey;
+    });
+    
+    return { options: newOptions, optionMapping: mapping };
+  }, [currentQuestion.options]);
+  
+  // Modified handleSelectOption to use the mapping
+  const handleSelectOptionMapped = (displayedOption: AttachmentStyleOption) => {
+    const originalOption = optionMapping[displayedOption];
+    const currentAnswers = attachmentStyleAnswers[currentQuestion.id] || [];
+    let newAnswers: AttachmentStyleOption[];
+    
+    if (currentAnswers.includes(originalOption)) {
+      // Remove the option if it's already selected
+      newAnswers = currentAnswers.filter(answer => answer !== originalOption);
+    } else {
+      // Add the option if it's not already selected
+      newAnswers = [...currentAnswers, originalOption];
+    }
+    
+    setAttachmentStyleAnswer(currentQuestion.id, newAnswers);
+  };
+  
+  // Get currently selected displayed options (reverse mapping)
+  const getSelectedDisplayedOptions = () => {
+    const originalAnswers = attachmentStyleAnswers[currentQuestion.id] || [];
+    const reverseMapping: Record<AttachmentStyleOption, AttachmentStyleOption> = {} as Record<AttachmentStyleOption, AttachmentStyleOption>;
+    Object.entries(optionMapping).forEach(([displayed, original]) => {
+      reverseMapping[original as AttachmentStyleOption] = displayed as AttachmentStyleOption;
+    });
+    return originalAnswers.map(original => reverseMapping[original]).filter(Boolean);
+  };
   
   // Results processing
   if (showResults) {
@@ -139,8 +185,8 @@ const AttachmentStyleTest: React.FC = () => {
         questionNumber={questionNumber}
         question={currentQuestion.question}
         options={options}
-        selectedOptions={attachmentStyleAnswers[currentQuestion.id] || []}
-        onSelectOption={handleSelectOption}
+        selectedOptions={getSelectedDisplayedOptions()}
+        onSelectOption={handleSelectOptionMapped}
         multiSelect={true}
       />
       
