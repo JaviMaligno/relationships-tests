@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 
 interface BaseSchema {
   '@context': string;
@@ -91,11 +90,9 @@ interface StructuredDataProps {
 
 const StructuredData: React.FC<StructuredDataProps> = ({ schema }) => {
   return (
-    <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify(schema)}
-      </script>
-    </Helmet>
+    <script type="application/ld+json">
+      {JSON.stringify(schema)}
+    </script>
   );
 };
 

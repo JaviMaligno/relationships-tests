@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
   title?: string;
@@ -36,7 +35,7 @@ const SEO: React.FC<SEOProps> = ({
   const fullOgUrl = ogUrl || fullCanonical;
 
   return (
-    <Helmet>
+    <>
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
@@ -79,7 +78,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="language" content="English" />
       <meta name="revisit-after" content="7 days" />
       <meta name="rating" content="General" />
-    </Helmet>
+    </>
   );
 };
 
