@@ -54,50 +54,50 @@ This document outlines suggested improvements to the Relationship Self-Assessmen
 
 While AdSense technically focuses on policy compliance, many recent rejections cite "low-value content" – a criterion that overlaps with Google Search quality signals such as E-E-A-T. Relationship advice is considered "YMYL" (Your Money or Your Life) content, so demonstrating expertise and trust is crucial.
 
-*   [ ] **Author Bios:** Add a short bio (with photo) for each content author on the About page or at the end of articles. Briefly list credentials, education, or relevant experience in psychology, counseling, or relationship coaching.
-*   [ ] **Citations & References:** Where appropriate, cite reputable sources (academic papers, books, well-known psychology sites) and link to them from articles.
-*   [ ] **External Validation:** If authors hold certifications or are members of professional organizations, mention and link to them.
+* [ ] **Author Bios:** Add a short bio (with photo) for each content author on the About page or at the end of articles. Briefly list credentials, education, or relevant experience in psychology, counseling, or relationship coaching.
+* [ ] **Citations & References:** Where appropriate, cite reputable sources (academic papers, books, well-known psychology sites) and link to them from articles.
+* [ ] **External Validation:** If authors hold certifications or are members of professional organizations, mention and link to them.
 
 ## 7. Add Disclaimer & Terms of Service
 
-*   [X] **Medical / Mental-Health Disclaimer:** Clearly state the tests are for educational purposes and not a substitute for professional diagnosis or therapy.
-*   [X] **Terms of Service (TOS):** Create a Terms page outlining user responsibilities, intellectual property notice, and limitations of liability.
-*   [X] **Link Footer:** Add prominent footer links for **Terms** and **Disclaimer** (can be combined with Privacy Policy).
+* [X] **Medical / Mental-Health Disclaimer:** Clearly state the tests are for educational purposes and not a substitute for professional diagnosis or therapy.
+* [X] **Terms of Service (TOS):** Create a Terms page outlining user responsibilities, intellectual property notice, and limitations of liability.
+* [X] **Link Footer:** Add prominent footer links for **Terms** and **Disclaimer** (can be combined with Privacy Policy).
 
 ## 8. Expand Static, Crawlable Content
 
 AdSense reviewers and crawlers may *not* interact with the quizzes, so most of your rich content is hidden. Provide crawlable pages that stand on their own.
 
-*   [X] **Create Dedicated Pages (≈600-1000 words each):** (Basic structure created)
-    *   [X] Love Languages Overview (static page, separate from the quiz intro)
-    *   [X] Individual Love Language pages (one per language, deep-dive content; inter-link them)
-    *   [X] Attachment Styles Overview page
-    *   [X] Individual Attachment Style pages (one per style)
-    *   [X] FAQ page (common questions about the tests & relationship theories)
-*   [X] **Internal Linking:** Link these articles from the Resources tab and from each other. (Initial links added)
-*   [X] **Sitemap.xml:** Generate and serve a sitemap so AdSense reviewers can easily discover all pages. (Generated and linked in robots.txt)
+* [X] **Create Dedicated Pages (≈600-1000 words each):** (Basic structure created)
+  * [X] Love Languages Overview (static page, separate from the quiz intro)
+  * [X] Individual Love Language pages (one per language, deep-dive content; inter-link them)
+  * [X] Attachment Styles Overview page
+  * [X] Individual Attachment Style pages (one per style)
+  * [X] FAQ page (common questions about the tests & relationship theories)
+* [X] **Internal Linking:** Link these articles from the Resources tab and from each other. (Initial links added)
+* [X] **Sitemap.xml:** Generate and serve a sitemap so AdSense reviewers can easily discover all pages. (Generated and linked in robots.txt)
 
 ## 9. Improve On-Page SEO / Meta Tags
 
-*   [X] Use React Helmet (or @tanstack/react-helmet-async) to set a unique `<title>` and `<meta description>` per route.
-*   [X] Add canonical URLs to prevent duplicate content signals.
+* [X] Use React Helmet (or @tanstack/react-helmet-async) to set a unique `<title>` and `<meta description>` per route.
+* [X] Add canonical URLs to prevent duplicate content signals.
 
 ## 10. Accessibility & UX Polish
 
-*   [ ] Ensure all interactive elements have `aria-label`s and accessible color contrast.
-*   [ ] Provide `alt` text for any images (e.g., logos, future blog images).
-*   [X] Add a custom 404 page with helpful navigation links.
+* [ ] Ensure all interactive elements have `aria-label`s and accessible color contrast.
+* [ ] Provide `alt` text for any images (e.g., logos, future blog images).
+* [X] Add a custom 404 page with helpful navigation links.
 
 ## 11. AdSense Technical Checks
 
-*   [X] **Single AdSense Script:** Verify the AdSense `<script>` is only injected once site-wide.
-*   [X] **Ad Placeholder:** Add at least one responsive ad unit in visible content (e.g., inside articles) so reviewers see how ads will appear.
-*   [X] **Ads.txt:** If hosting on a custom domain in the future, create an `ads.txt` file at the root listing your publisher ID.
+* [X] **Single AdSense Script:** Verify the AdSense `<script>` is only injected once site-wide.
+* [X] **Ad Placeholder:** Add at least one responsive ad unit in visible content (e.g., inside articles) so reviewers see how ads will appear.
+* [X] **Ads.txt:** If hosting on a custom domain in the future, create an `ads.txt` file at the root listing your publisher ID.
 
 ## 12. Performance & Mobile Friendliness
 
-*   [ ] Audit Core Web Vitals (use Lighthouse). Aim for "good" scores on mobile.
-*   [ ] Use lazy loading for heavy assets and charts.
+* [X] Audit Core Web Vitals (use Lighthouse). Aim for "good" scores on mobile.
+* [ ] Use lazy loading for heavy assets and charts.
 
 ---
 

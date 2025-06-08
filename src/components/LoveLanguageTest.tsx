@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useRef } from 'react';
 import { useTest } from '../contexts/TestContext';
 import { loveLanguagesQuestions, loveLanguagesCategories, loveLanguageDescriptions } from '../data/loveLanguagesData';
 import { LoveLanguageOption } from '../contexts/TestContext';
@@ -6,10 +6,8 @@ import QuestionCard from './QuestionCard';
 import TestNavigation from './TestNavigation';
 import ResultsChart from './ResultsChart';
 import { downloadElementAsImage } from '../utils/downloadUtils';
-import { shuffleArray } from '../utils/arrayUtils';
 import { SEO, StructuredData, createQuizSchema, createWebSiteSchema } from './SEO';
-import AdUnit from './AdUnit/AdUnit';
-import html2canvas from 'html2canvas';
+import { useTestRunner } from '../hooks/useTestRunner';
 
 const LoveLanguageTest: React.FC = () => {
   const { 
@@ -19,104 +17,23 @@ const LoveLanguageTest: React.FC = () => {
     calculateLoveLanguageResults 
   } = useTest();
   
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [showResults, setShowResults] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
-  
-  const currentQuestion = loveLanguagesQuestions[currentQuestionIndex];
-  const questionNumber = currentQuestionIndex + 1;
-  const totalQuestions = loveLanguagesQuestions.length;
-  
-  const handleSelectOption = (option: LoveLanguageOption) => {
-    const currentAnswers = loveLanguageAnswers[currentQuestion.id] || [];
-    let newAnswers: LoveLanguageOption[];
-    
-    if (currentAnswers.includes(option)) {
-      // Remove the option if it's already selected
-      newAnswers = currentAnswers.filter(answer => answer !== option);
-    } else {
-      // Add the option if it's not already selected
-      newAnswers = [...currentAnswers, option];
-    }
-    
-    setLoveLanguageAnswer(currentQuestion.id, newAnswers);
-  };
-  
-  const handleBack = () => {
-    if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex(prev => prev - 1);
-    }
-  };
-  
-  const handleNext = () => {
-    if (currentQuestionIndex < totalQuestions - 1) {
-      setCurrentQuestionIndex(prev => prev + 1);
-    }
-  };
-  
-  const handleSubmit = () => {
-    setShowResults(true);
-  };
-  
-  const handleRestartTest = () => {
-    resetLoveLanguageAnswers();
-    setCurrentQuestionIndex(0);
-    setShowResults(false);
-  };
-  
-  const canGoBack = currentQuestionIndex > 0;
-  const canGoForward = loveLanguageAnswers[currentQuestion.id]?.length > 0;
-  
-  // Prepare options for the current question with shuffled content but ordered letters
-  const { options, optionMapping } = useMemo(() => {
-    // Get the original options and shuffle their texts
-    const originalEntries = Object.entries(currentQuestion.options);
-    const shuffledTexts = shuffleArray(originalEntries.map(([_, text]) => text));
-    
-    // Create new options with letters A-E but shuffled text content
-    const letters: LoveLanguageOption[] = ['A', 'B', 'C', 'D', 'E'];
-    const newOptions = letters.map((letter, index) => ({
-      key: letter,
-      text: shuffledTexts[index]
-    }));
-    
-    // Create mapping from display letter to original option key
-    const mapping: Record<LoveLanguageOption, LoveLanguageOption> = {} as Record<LoveLanguageOption, LoveLanguageOption>;
-    letters.forEach((letter, index) => {
-      const originalText = shuffledTexts[index];
-      const originalKey = originalEntries.find(([_, text]) => text === originalText)?.[0] as LoveLanguageOption;
-      mapping[letter] = originalKey;
-    });
-    
-    return { options: newOptions, optionMapping: mapping };
-  }, [currentQuestion.options]);
-  
-  // Modified handleSelectOption to use the mapping
-  const handleSelectOptionMapped = (displayedOption: LoveLanguageOption) => {
-    const originalOption = optionMapping[displayedOption];
-    const currentAnswers = loveLanguageAnswers[currentQuestion.id] || [];
-    let newAnswers: LoveLanguageOption[];
-    
-    if (currentAnswers.includes(originalOption)) {
-      // Remove the option if it's already selected
-      newAnswers = currentAnswers.filter(answer => answer !== originalOption);
-    } else {
-      // Add the option if it's not already selected
-      newAnswers = [...currentAnswers, originalOption];
-    }
-    
-    setLoveLanguageAnswer(currentQuestion.id, newAnswers);
-  };
-  
-  // Get currently selected displayed options (reverse mapping)
-  const getSelectedDisplayedOptions = () => {
-    const originalAnswers = loveLanguageAnswers[currentQuestion.id] || [];
-    const reverseMapping: Record<LoveLanguageOption, LoveLanguageOption> = {} as Record<LoveLanguageOption, LoveLanguageOption>;
-    Object.entries(optionMapping).forEach(([displayed, original]) => {
-      reverseMapping[original as LoveLanguageOption] = displayed as LoveLanguageOption;
-    });
-    return originalAnswers.map(original => reverseMapping[original]).filter(Boolean);
-  };
+
+  const {
+    currentQuestion,
+    questionNumber,
+    showResults,
+    options,
+    handleRestartTest,
+    getSelectedDisplayedOptions,
+    handleSelectOptionMapped,
+    navigationProps,
+  } = useTestRunner<LoveLanguageOption, number>({
+    questions: loveLanguagesQuestions,
+    answers: loveLanguageAnswers,
+    setAnswer: setLoveLanguageAnswer,
+    resetAnswers: resetLoveLanguageAnswers,
+  });
   
   // Results processing
   if (showResults) {
@@ -277,13 +194,7 @@ const LoveLanguageTest: React.FC = () => {
       />
       
       <TestNavigation
-        currentQuestion={questionNumber}
-        totalQuestions={totalQuestions}
-        canGoBack={canGoBack}
-        canGoForward={canGoForward}
-        onBack={handleBack}
-        onNext={handleNext}
-        onSubmit={handleSubmit}
+        {...navigationProps}
       />
     </div>
   );
