@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for internal navigation
+import Link from 'next/link';
 import { SEO, StructuredData, createFAQSchema } from '../components/SEO';
 
 export const FaqPage: React.FC = () => {
@@ -65,7 +65,7 @@ export const FaqPage: React.FC = () => {
             It describes the primary ways people express and experience love within relationships.
             These are: Words of Affirmation, Quality Time, Receiving Gifts, Acts of Service, and Physical Touch.
             Understanding your own and your partner's primary languages can help improve communication and connection.
-            You can learn more on our <Link to="/love-languages-overview">Love Languages Overview page</Link>.
+            You can learn more on our <Link href="/love-languages-overview">Love Languages Overview page</Link>.
           </p>
         </article>
 
@@ -76,7 +76,7 @@ export const FaqPage: React.FC = () => {
             people bond and connect in close relationships, particularly based on early experiences with caregivers.
             The main adult attachment styles are Secure, Anxious-Preoccupied, Dismissive-Avoidant, and Fearful-Avoidant (Disorganized).
             Knowing your style can provide insight into your relationship patterns.
-            Explore this further on our <Link to="/attachment-styles-overview">Attachment Styles Overview page</Link>.
+            Explore this further on our <Link href="/attachment-styles-overview">Attachment Styles Overview page</Link>.
           </p>
         </article>
 
@@ -112,7 +112,7 @@ export const FaqPage: React.FC = () => {
             No, your test answers and results are not saved or stored on our servers. 
             All calculations happen directly in your browser.
             Your use of the tests is completely anonymous. Once you close the page, the data is gone.
-            Please see our <Link to="/privacy">Privacy Policy</Link> for details.
+            Please see our <Link href="/privacy">Privacy Policy</Link> for details.
           </p>
         </article>
 
@@ -144,7 +144,7 @@ export const FaqPage: React.FC = () => {
           <h3>I encountered a problem with the website. How can I report it?</h3>
           <p>
             We appreciate your feedback! If you find any bugs or have suggestions for improvement,
-            please reach out to us via the details on our <Link to="/contact">Contact Us page</Link>.
+            please reach out to us via the details on our <Link href="/contact">Contact Us page</Link>.
           </p>
         </article>
 

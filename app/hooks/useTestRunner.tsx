@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { shuffleArray } from '../utils/arrayUtils';
 
 type Option = string;
@@ -55,7 +55,9 @@ export const useTestRunner = <T extends Option, ID>({
   const canGoBack = currentQuestionIndex > 0;
   const canGoForward = !!answers[currentQuestion.id as any]?.length;
 
-  const { options, optionMapping } = useMemo(() => {
+  const [shuffledData, setShuffledData] = useState<{ options: { key: T; text: string }[]; optionMapping: Record<string, T> } | null>(null);
+
+  useEffect(() => {
     const originalEntries = Object.entries(currentQuestion.options);
     const shuffledTexts = shuffleArray(originalEntries.map(([, text]) => text));
     
@@ -74,11 +76,12 @@ export const useTestRunner = <T extends Option, ID>({
       mapping[letter] = originalKey;
     });
 
-    return { options: newOptions, optionMapping: mapping };
-  }, [currentQuestion.options]);
+    setShuffledData({ options: newOptions, optionMapping: mapping });
+  }, [currentQuestion]);
 
   const handleSelectOptionMapped = (displayedOption: T) => {
-    const originalOption = optionMapping[displayedOption];
+    if (!shuffledData) return;
+    const originalOption = shuffledData.optionMapping[displayedOption];
     const currentAnswers = answers[currentQuestion.id as any] || [];
     let newAnswers: T[];
 
@@ -92,9 +95,10 @@ export const useTestRunner = <T extends Option, ID>({
   };
 
   const getSelectedDisplayedOptions = () => {
+    if (!shuffledData) return [];
     const originalAnswers = answers[currentQuestion.id as any] || [];
     const reverseMapping: Record<string, T> = {};
-    Object.entries(optionMapping).forEach(([displayed, original]) => {
+    Object.entries(shuffledData.optionMapping).forEach(([displayed, original]) => {
       reverseMapping[original as T] = displayed as T;
     });
     return originalAnswers.map((original) => reverseMapping[original]).filter(Boolean);
@@ -106,7 +110,7 @@ export const useTestRunner = <T extends Option, ID>({
     questionNumber,
     totalQuestions,
     showResults,
-    options,
+    options: shuffledData ? shuffledData.options : [],
     handleRestartTest,
     getSelectedDisplayedOptions,
     handleSelectOptionMapped,

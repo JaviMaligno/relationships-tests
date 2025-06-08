@@ -1,9 +1,18 @@
 import React from 'react';
 import { Box, Container, Typography, Link as MuiLink } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import Link from 'next/link';
 
 const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear();
+
+    const links = [
+        { href: '/about', text: 'About Us' },
+        { href: '/contact', text: 'Contact Us' },
+        { href: '/privacy', text: 'Privacy Policy' },
+        { href: '/terms', text: 'Terms of Service' },
+        { href: '/disclaimer', text: 'Disclaimer' },
+        { href: '/faq', text: 'FAQ' },
+    ];
 
     return (
         <Box
@@ -19,29 +28,14 @@ const Footer: React.FC = () => {
         >
             <Container maxWidth="lg">
                 <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                    <MuiLink component={RouterLink} to="/about" color="inherit" sx={{ mx: 1 }}>
-                        About Us
-                    </MuiLink>
-                    |
-                    <MuiLink component={RouterLink} to="/contact" color="inherit" sx={{ mx: 1 }}>
-                        Contact Us
-                    </MuiLink>
-                    |
-                    <MuiLink component={RouterLink} to="/privacy" color="inherit" sx={{ mx: 1 }}>
-                        Privacy Policy
-                    </MuiLink>
-                    |
-                    <MuiLink component={RouterLink} to="/terms" color="inherit" sx={{ mx: 1 }}>
-                        Terms of Service
-                    </MuiLink>
-                    |
-                    <MuiLink component={RouterLink} to="/disclaimer" color="inherit" sx={{ mx: 1 }}>
-                        Disclaimer
-                    </MuiLink>
-                    |
-                    <MuiLink component={RouterLink} to="/faq" color="inherit" sx={{ mx: 1 }}>
-                        FAQ
-                    </MuiLink>
+                    {links.map((link, index) => (
+                        <React.Fragment key={link.href}>
+                            <MuiLink component={Link} href={link.href} color="inherit" sx={{ mx: 1 }}>
+                                {link.text}
+                            </MuiLink>
+                            {index < links.length - 1 && ' | '}
+                        </React.Fragment>
+                    ))}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     {'Copyright © '}

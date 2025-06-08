@@ -34,7 +34,7 @@ const AttachmentStyleTest: React.FC = () => {
     setAnswer: setAttachmentStyleAnswer,
     resetAnswers: resetAttachmentStyleAnswers,
   });
-
+  
   // Results processing
   if (showResults) {
     const results = calculateAttachmentStyleResults();

@@ -18,7 +18,7 @@ const LoveLanguageTest: React.FC = () => {
   } = useTest();
   
   const resultsRef = useRef<HTMLDivElement>(null);
-
+  
   const {
     currentQuestion,
     questionNumber,

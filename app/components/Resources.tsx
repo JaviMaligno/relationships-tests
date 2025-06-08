@@ -1,7 +1,6 @@
 import React from 'react';
 import './Resources.css'; // We'll create this for styling
-import AdUnit from './AdUnit/AdUnit'; // Import the AdUnit component
-import { Link } from 'react-router-dom'; // Import Link for internal navigation
+import Link from 'next/link';
 import { SEO } from './SEO';
 
 const Resources: React.FC = () => {
@@ -24,13 +23,11 @@ const Resources: React.FC = () => {
         stronger connections, and personal growth within your relationships.
       </p>
       
-      <AdUnit />
-
       <section>
         <h3>Love Languages</h3>
         <p>
           Learn more about the theory and discover your own language with our overview page: 
-          <Link to="/love-languages-overview">Understanding the 5 Love Languages</Link>.
+          <Link href="/love-languages-overview">Understanding the 5 Love Languages</Link>.
         </p>
         <ul>
           <li>
@@ -98,7 +95,7 @@ const Resources: React.FC = () => {
         <h3>Attachment Theory</h3>
         <p>
           Discover your attachment style and learn more on our overview page: 
-          <Link to="/attachment-styles-overview">Understanding Attachment Styles</Link>.
+          <Link href="/attachment-styles-overview">Understanding Attachment Styles</Link>.
         </p>
         <ul>
           <li>
