@@ -97,7 +97,7 @@ AdSense reviewers and crawlers may *not* interact with the quizzes, so most of y
 ## 12. Performance & Mobile Friendliness
 
 * [X] Audit Core Web Vitals (use Lighthouse). Aim for "good" scores on mobile.
-* [ ] Use lazy loading for heavy assets and charts.
+* [X] Use lazy loading for heavy assets and charts.
 
 ---
 
