@@ -66,8 +66,9 @@ const mapSlugToLanguageKey = (slug: string): string | undefined => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = Object.keys(loveLanguagesCategories).map(key => ({
-    params: { languageSlug: key.toLowerCase().replace(/ /g, '-') },
+  // Generate slugs from the love language names (e.g. "Quality Time" -> "quality-time")
+  const paths = Object.values(loveLanguagesCategories).map((name) => ({
+    params: { languageSlug: name.toLowerCase().replace(/ /g, '-') },
   }));
 
   return { paths, fallback: false };
